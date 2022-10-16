@@ -17,7 +17,7 @@ class Newss extends Command
     // {
     //     $data = ProductModel::select();
     //     // ProductModel::create([
-    //     //     'name' => '测试数据库名称',
+    //     //     'name' => '测试数据库名称',sdfsd
     //     //     'round' => '1212'
     //     // ]);
     //     // $data = ProductModel::select();

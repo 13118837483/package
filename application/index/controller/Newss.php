@@ -14,7 +14,7 @@ use Predis\Client;
 class Newss extends Command
 {
     // public function index()ee
-    // {
+    // {ertertertre
     //     $data = ProductModel::select();
     //     // ProductModel::create([
     //     //     'name' => '测试数据库名称',sdfsd

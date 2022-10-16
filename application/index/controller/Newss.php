@@ -20,7 +20,7 @@ class Newss extends Command
     //     //     'name' => '测试数据库名称',sdfsd
     //     //     'round' => '1212'
     //     // ]);
-    //     // $data = ProductModel::select();
+    //     // $data = ProductModel::select();ddd
     //     // foreach($data as &$v){
     //     //     $v = $v->toArray();
     //     // }

@@ -4,6 +4,7 @@ namespace app\index\controller;
 // USE think\Db;
 use app\index\model\Test as testModel;
 use app\index\model\Product as ProductModel;
+use app\index\service\Paixu as paixuService;
 use think\cache\driver\Redis;
 // use think\Cache\
 use think\console\Command;
@@ -45,5 +46,13 @@ class Product extends Controller
       }
       if($num != 3) $b = $b . '465165456';
       return $b;
+   }
+   public function pai()
+   {
+      $arr = [100,50,1,2,45,8];
+      $service = new paixuService();
+   
+      $data = $service->bubble_sort($arr);
+      halt($data);
    }
 }

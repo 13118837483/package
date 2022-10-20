@@ -53,6 +53,8 @@ class Product extends Controller
       $service = new paixuService();
    
       $data = $service->bubble_sort($arr);
-      halt($data);
+      dump($data);
+      $serv = $service->new_sort($arr);
+      halt($serv);
    }
 }

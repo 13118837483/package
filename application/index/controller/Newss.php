@@ -69,29 +69,18 @@ class Newss extends Command
 
     protected function execute(Input $input, Output $output)
     {
-        for ($i = 0; $i < 1000000; $i++) {
-            dump($i);
-            
-            ProductModel::create([
-                'user_name' => '测试数据库名称',
-                'name' => '测试数据库名称',
-                'avc' => '测试数据库名称',
-                'adsf' => '测试数据库名称',
-                'wer' => '测试数据库名称',
-                'rtyrt' => '测试数据库名称',
-                'ghj' => '测试数据库名称',
-                'password' => '测试数据库名称',
-                'ertertr' => '测试数据库名称',
-                'vcg' => '测试数据库名称',
-                'zxc' => '测试数据库名称',
-                'hgf' => '测试数据库名称',
-                'sdf' => '测试数据库名称',
-                'werwer' => '测试数据库名称',
-                'werweeer' => '测试数据库名称',
-                'weeeeer' => '测试数据库名称',
-                'werwe' => '测试数据库名称',
-
-            ]);
-        }
+        $topic = 'tesst';
+        $channel = 'my_channel';
+        $endpoint = new \NSQClient\Access\Endpoint('http://127.0.0.1:4161');
+        \NSQClient\Queue::subscribe($endpoint, $topic, $channel, function (\NSQClient\Contract\Message $message) {
+            echo $message->payload();
+            // echo 'GOT ', $message, "\n";
+            // make done
+            $message->done();
+            // make retry immediately
+            // $message->retry();
+            // make retry delayed in 10 seconds
+            // $message->delay(10);
+        });
     }
 }

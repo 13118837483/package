@@ -16,10 +16,13 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
+        "php": "^7.2 || ^8.0",
         "topthink/framework": "5.0.*",
         "topthink/think-migration": "1.*",
-        "predis/predis": "^2.0"
+        "predis/predis": "^2.0",
+        "moolex/nsqclient": "dev-master"
+        
+        
     },
     "autoload": {
         "psr-4": {

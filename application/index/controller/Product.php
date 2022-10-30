@@ -74,13 +74,5 @@ $endpoint = new \NSQClient\Access\Endpoint('http://127.0.0.1:4161');
     // make retry delayed in 10 seconds
     // $message->delay(10);
 });
-      // phpinfo();
-      // $arr = [100,50,1,2,45,8];
-      // $service = new paixuService();
-   
-      // $data = $service->bubble_sort($arr);
-      // dump($data);
-      // $serv = $service->new_sort($arr);
-      // halt($serv);
    }
 }

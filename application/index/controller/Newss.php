@@ -69,7 +69,7 @@ class Newss extends Command
 
     protected function execute(Input $input, Output $output)
     {
-        $topic = 'tesst';
+        $topic = 'test';
         $channel = 'my_channel';
         $endpoint = new \NSQClient\Access\Endpoint('http://127.0.0.1:4161');
         \NSQClient\Queue::subscribe($endpoint, $topic, $channel, function (\NSQClient\Contract\Message $message) {

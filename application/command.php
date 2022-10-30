@@ -12,4 +12,5 @@
 return [
     'app\index\controller\News',
     'app\index\controller\Newss',
+    'app\command\controller\Nsq'
 ];

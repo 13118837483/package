@@ -16,3 +16,8 @@ function json($data){
 //   halt($data);
 return json_encode($data,JSON_UNESCAPED_UNICODE);
 }
+
+function obj_to_arr($data){
+    halt($data);
+    return json_decode(json_encode($data));
+}

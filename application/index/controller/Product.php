@@ -22,22 +22,12 @@ class Product extends Controller
 
    public function index()
    {
-      $get = input('get.');
-      //    halt($get);
-      $data = testModel::where(['id' => ['<', 1000]])->select();
-      for ($i = 0; $i < 1000; $i++) {
-         $name = $this->getChar(3);
-         $passwordName = $this->getChar(2);
-
-         // dump($passwordName);
-         testModel::create([
-            'user_name' => $name,
-            'password' => $passwordName,
-            'age' => $i,
-         ]);
+      $data = ProductModel::where(['id' => ['<',0]])->limit(10)->select()->toArray();
+     $data = obj_to_arr($data);
+     halt($data);
+      // return json($data);
+      // return $data
       }
-      return json($data);
-   }
 
    public function getChar($num)  // $num为生成汉字的数量
    {

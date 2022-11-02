@@ -22,7 +22,10 @@ class Product extends Controller
 
    public function index()
    {
+   // $a == 0;
+   // echo $a == 'aa' ? 111 : 000;
       $data = ProductModel::where(['id' => ['<',0]])->limit(10)->select()->toArray();
+      // $service = new paixuServsice;
      $data = obj_to_arr($data);
      halt($data);
       // return json($data);

@@ -22,15 +22,28 @@ class Product extends Controller
 
    public function index()
    {
-   // $a == 0;
-   // echo $a == 'aa' ? 111 : 000;
-      $data = ProductModel::where(['id' => ['<',0]])->limit(10)->select()->toArray();
-      // $service = new paixuServsice;
-     $data = obj_to_arr($data);
-     halt($data);
-      // return json($data);
-      // return $data
+    $a = -3;
+    $b = 4;
+    echo $b|$a;
+      
+   function aa($a = 2,$b = 3,$c)
+      {
+         static $count = 1;
+         // $count = 1;
+         $count = $count +20;
+         // return $count ++;
+
+      }  
+   // aa(1);
+   // echo $count;
       }
+
+      public function aa()
+      {
+         static $count = 0;
+         return $count ++;
+
+      }  
 
    public function getChar($num)  // $num为生成汉字的数量
    {

@@ -18,6 +18,9 @@ return [
     'database'        => 'database',
     // 用户名
     'username'        => 'root',
+
+
+    
     // 密码
     'password'        => 'root',
     // 端口

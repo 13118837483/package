@@ -26,6 +26,15 @@ Route::put('new/:id','News/update'); // 定义PUT请求路由规则
 Route::delete('new/:id','News/delete'); // 定义DELETE请求路由规则
 Route::any('new/:id','News/read'); // 所有请求都支持的路由规则
 Route::get('redistest/push','index/RedisTest/push'); // 定义GET请求路由规则
+// Route::get('index/indextext','index/indexTe'); // 定义GET请求路由规则
+
+
+
+
+Route::get('contentFunction/array','index/ContentFunction/arrayFunction'); //内置函数测试
+Route::get('contentFunction/string','index/ContentFunction/stringFunction'); //内置函数测试
+Route::get('index/indexTe','index/Index/indexTe');//测试增删改查
+
 
 return [
     '__pattern__' => [

@@ -34,6 +34,7 @@ Route::get('redistest/push','index/RedisTest/push'); // 定义GET请求路由规
 Route::get('contentFunction/array','index/ContentFunction/arrayFunction'); //内置函数测试
 Route::get('contentFunction/string','index/ContentFunction/stringFunction'); //内置函数测试
 Route::get('index/indexTe','index/Index/indexTe');//测试增删改查
+Route::get('index/paixuPro','index/Index/paixuPro');//排序问题
 
 
 return [

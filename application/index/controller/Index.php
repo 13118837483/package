@@ -4,6 +4,7 @@ namespace app\index\controller;
 
 use app\index\model\Product;
 use app\index\model\Test;
+use think\cache\driver\Redis;
 use think\Db;
 
 
@@ -46,10 +47,35 @@ class Index
 
     public function paixuPro()
     {
-        $arr = $this->arr;
-        // halt($arr);
-        $a = self::paixuService($arr);
-        halt($a);
+
+        $redis = new Redis();
+        $redis->select(2);
+        $key = 'test';
+        $fieldf = 'test_field1';
+        $fields = 'test_field2';
+        //字符串
+        // $redis->set('test','测试');
+        // $redis->rm('test');
+        // $redis->select(1);
+        $redis->hset($key,$fields,'32erwer32');
+        dump($redis->hgetall($key));
+        dump($redis->hexists($key,$fieldf));
+
+    //     $a = 'd';$b = 'c';
+    //     $array = ['1','2'];
+    //     $string = 's.df.sd.f';
+    //     // halt($a+$b);
+    //   echo 1+2+3+"3+3+3";
+    // //   halt($s);
+    //   $s[1] = '5';
+    //   dump(1 == false);
+    //   halt('1top' == 0);
+    //     dump(explode('.',$string));
+    //     halt(implode('',$array));
+    //     // $arr = $this->arr;
+        // // halt($arr);
+        // $a = self::paixuService($arr);
+        // halt($a);
     }
     //快速排序
     static function paixuService($data)

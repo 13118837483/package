@@ -113,7 +113,7 @@ class Product extends Controller
                 'user_name' => $data['user_name'],
                 'user_password' => $data['user_password'],
                 'age' => $data['age'],
-                'create_time' => date('Y-m-d H:i:s')
+                'create_times' => date('Y-m-d H:i:s')
             ]);
             // halt($saveUser);
             // halt($saveUser->id);
@@ -123,7 +123,7 @@ class Product extends Controller
             }
             foreach ($data['product'] as &$v) {
                 $v['user_t_id'] = $saveUser->id;
-                $v['create_time'] = date('Y-m-d H:i:s');
+                $v['create_times'] = date('Y-m-d H:i:s');
             }
             model('Product')->saveAll($data['product']);
             Db::commit();
@@ -139,7 +139,24 @@ class Product extends Controller
     }
     public function index()
     {
-        // $data = $this->mod::join('product','user_t.id = product.id');
+        $get = input('get.');
+        $where = [];
+        // halt($get['user_name']);
+        $page = !empty($get['page']) ? $get['page'] : 1;
+        $pageSize = !empty($get['pageSize']) ? $get['pageSize'] : 20;
+      
+        $this->model->join('product','user_t.id = product.user_t_id','left')
+        ->group('user_t.id')->order('user_t.id','desc')
+        ->page($page,$pageSize);
+        
+        if($get['user_t_id'] != '') $this->model->where('user_t_id',$get['user_t_id']);
+        $user_id = $this->model->column('user_t.id');
+        // die(Db::getLastSql());
+        $data = [];
+        if($user_id){
+            $data = $this->model::whereIn('id',$user_id)->with(['product'])->paginate($pageSize);
+        }
+        return json($data);
 
     }
     public function read($id)
@@ -149,5 +166,6 @@ class Product extends Controller
     }
     public function delete()
     {
+        
     }
 }

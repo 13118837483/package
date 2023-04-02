@@ -12,8 +12,8 @@ class NsqPush extends Controller
 
     public function push()
     {
-        HALT('DD');
-        $topic = 'test';
+       
+        $topic = 'teseet';
         $endpoint = new \NSQClient\Access\Endpoint('http://127.0.0.1:4161');//
         $message = (new \NSQClient\Message\Message('hello world'))->deferred(5);
         $result = \NSQClient\Queue::publish($endpoint, $topic, $message);

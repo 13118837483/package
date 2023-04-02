@@ -139,25 +139,25 @@ class Product extends Controller
     }
     public function index()
     {
+
         $get = input('get.');
         $where = [];
         // halt($get['user_name']);
         $page = !empty($get['page']) ? $get['page'] : 1;
         $pageSize = !empty($get['pageSize']) ? $get['pageSize'] : 20;
-      
-        $this->model->join('product','user_t.id = product.user_t_id','left')
-        ->group('user_t.id')->order('user_t.id','desc')
-        ->page($page,$pageSize);
-        
-        if($get['user_t_id'] != '') $this->model->where('user_t_id',$get['user_t_id']);
+
+        $this->model->join('product', 'user_t.id = product.user_t_id', 'left')
+            ->group('user_t.id')->order('user_t.id', 'desc')
+            ->page($page, $pageSize);
+
+        if ($get['user_t_id'] != '') $this->model->where('user_t_id', $get['user_t_id']);
         $user_id = $this->model->column('user_t.id');
         // die(Db::getLastSql());
         $data = [];
-        if($user_id){
-            $data = $this->model::whereIn('id',$user_id)->with(['product'])->paginate($pageSize);
+        if ($user_id) {
+            $data = $this->model::whereIn('id', $user_id)->with(['product'])->paginate($pageSize);
         }
         return json($data);
-
     }
     public function read($id)
     {
@@ -166,6 +166,56 @@ class Product extends Controller
     }
     public function delete()
     {
+    }
+
+    //字符串处理
+    public function arrStrFunction()
+    {
+        $x = 'a';
+        $y = 'b';
+        $z = 'c';
+        $string = 'asdfgdfdhj';
+        dump(strlen($string));
+        dump(str_replace('d','addddaa',$string));
+        dump(strstr($string,'h'));
+        dump(strpos($string,'j'));
+        dump(strpos($string,'j'));
+        // dump(strlen($string));
+        // strlen(); # 统计字符串长度, 中文占 3 个字节
+
+        // 	mb_strlen(); # 统计字符串长度, 中文占 1 个字节
+        //     str_replace($new, $old, $string); # 字符串替换操作, 区分大小写
+        //     strstr($string, $search, $before=false); # 查找字符串在另一个字符串中第一次出现的位置，并返回从该位置到字符串结尾或字符串开始的所有字符, 无则返回 FALSE, 区分大小写
+        //     strpos($string, $search, $start); # 返回字符串在另一字符串首次出现的位置, 区分大小写
+        // 	stripos($string, $search, $start); # 返回字符串在另一字符串首次出现的位置, 不区分大小写
+        // 	strrpos($string, $search, $start); # 返回字符串在另一字符串最后一次出现的位置, 区分大小写
+        //     strripos($string, $search, $start); # 返回字符串在另一字符串最后一次出现的位置, 不区分大小写
+        //     explode($separator, $string); # 按 $separator 分隔 $string , 打散后重新组装成数组
+        // 	implode($separator, $array); # 用 $separator 分隔数组中的每个值, 转换成新字符串
+        // 	
         
+        ($string, $start, $length); # 中文占 3 个字节, 在 $string 字符串中, 从 $start 位置开始, 返回 $length 长度的字符串， $length 默认直到字符串结尾
+        // 	mb_substr($string, $start, $length); # 中文占 1 个字节, 在 $string 字符串中, 从 $start 位置开始, 返回 $length 长度的字符串， $length 默认直到字符串结尾 
+        // strrev(); # 反转字符串
+        // strtolower($string); # 全部字符串转为小写
+        // strtoupper($string); # 全部字符串转为大写
+        // lcfirst($string); # 字符串首字母小写
+        // ucfirst($string); # 字符串首字母大写
+        // ucwords($string); # 字符串每个单词首字母转为大写
+        //         array_merge($x, $y, $z); # 数组合并
+        //         array_diff($x, $y, $z); # 返回差集
+        //         array_intersect($x, $y, $z); # 返回交集
+        //         count(); # 获取数组中元素的个数
+        //         array_unique(); # 数组值去重，删除重复元素，返回剩余的数组
+        //         array_keys(); # 将数组中所有的键，组成新数组    
+        //         array_values(); # 将数组中所有的值，组成新数组
+        //         array_pop(); # 删除数组中最后一个元素。
+        // 	array_push($array, $value); # # 在数组结尾插入一个或多个元素
+        //     sort(); # 按升序对数组的值排序，不保留原键名
+        // 	rsort(); # 按降序对数组的值排序，不保留原键名
+        // 	asort(); # 按升序对数组的值排序，保留原键名
+        // 	arsort(); # 按降序对数组的值排序，保留原键名
+        // 	ksort(); # 按升序对数组的键排序，保留原键名
+        // 	krsort(); # 按降序对数组的键排序，保留原键名
     }
 }

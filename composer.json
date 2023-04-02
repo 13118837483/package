@@ -20,7 +20,7 @@
         "topthink/framework": "5.0.*",
         "topthink/think-migration": "1.*",
         "predis/predis": "^2.0",
-        "moolex/nsqclient": "dev-master"
+        "nsq/nsqclient": "dev-master"
         
         
     },
@@ -33,6 +33,9 @@
         "think-path": "thinkphp"
     },
     "config": {
-        "preferred-install": "dist"
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "topthink/think-installer": true
+        }
     }
 }

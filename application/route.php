@@ -12,12 +12,13 @@
 use think\Route;
 
 Route::get('/',function(){
-    return 'Hello,world!';
+    return 'Hello,worlddd!';
 });
 
 
 Route::get('new','index/News/index'); // 定义GET请求路由规则
 
+Route::get('product/arrStrFunction','index/Product/arrStrFunction'); // 定义GET请求路由规则
 Route::resource('product','index/Product'); // 定义GET请求路由规则
 Route::get('product/pai','index/Product/pai'); // 定义GET请求路由规则
 Route::get('nsq/push','index/NsqPush/push'); // 定义GET请求路由规则

@@ -23,13 +23,13 @@ Route::resource('product','index/Product'); // 定义GET请求路由规则
 Route::get('product/pai','index/Product/pai'); // 定义GET请求路由规则
 Route::get('nsq/push','index/NsqPush/push'); // 定义GET请求路由规则
 Route::post('new/:id','News/update'); // 定义POST请求路由规则
-Route::put('new/:id','News/update'); // 定义PUT请求路由规则
+Route::put('new/:id','News/update'); // 定义PUT请求路由规则/
 Route::delete('new/:id','News/delete'); // 定义DELETE请求路由规则
 Route::any('new/:id','News/read'); // 所有请求都支持的路由规则
 Route::get('redistest/push','index/RedisTest/push'); // 定义GET请求路由规则
 // Route::get('index/indextext','index/indexTe'); // 定义GET请求路由规则
 
-
+///////
 
 
 Route::get('contentFunction/array','index/ContentFunction/arrayFunction'); //内置函数测试

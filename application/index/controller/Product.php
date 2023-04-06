@@ -182,7 +182,7 @@ class Product extends Controller
         dump(strpos($string,'j'));
         // dump(strlen($string));
         // strlen(); # 统计字符串长度, 中文占 3 个字节
-
+        //测试变基问题
         // 	mb_strlen(); # 统计字符串长度, 中文占 1 个字节
         //     str_replace($new, $old, $string); # 字符串替换操作, 区分大小写
         //     strstr($string, $search, $before=false); # 查找字符串在另一个字符串中第一次出现的位置，并返回从该位置到字符串结尾或字符串开始的所有字符, 无则返回 FALSE, 区分大小写
@@ -194,7 +194,7 @@ class Product extends Controller
         // 	implode($separator, $array); # 用 $separator 分隔数组中的每个值, 转换成新字符串
         // 	
         
-        ($string, $start, $length); # 中文占 3 个字节, 在 $string 字符串中, 从 $start 位置开始, 返回 $length 长度的字符串， $length 默认直到字符串结尾
+        rwerwe($string, $start, $length); # 中文占 3 个字节, 在 $string 字符串中, 从 $start 位置开始, 返回 $length 长度的字符串， $length 默认直到字符串结尾
         // 	mb_substr($string, $start, $length); # 中文占 1 个字节, 在 $string 字符串中, 从 $start 位置开始, 返回 $length 长度的字符串， $length 默认直到字符串结尾 
         // strrev(); # 反转字符串
         // strtolower($string); # 全部字符串转为小写

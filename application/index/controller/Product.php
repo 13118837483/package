@@ -193,8 +193,7 @@ class Product extends Controller
         //     explode($separator, $string); # 按 $separator 分隔 $string , 打散后重新组装成数组
         // 	implode($separator, $array); # 用 $separator 分隔数组中的每个值, 转换成新字符串
         // 	
-        
-        rwerwe($string, $start, $length); # 中文占 3 个字节, 在 $string 字符串中, 从 $start 位置开始, 返回 $length 长度的字符串， $length 默认直到字符串结尾
+
         // 	mb_substr($string, $start, $length); # 中文占 1 个字节, 在 $string 字符串中, 从 $start 位置开始, 返回 $length 长度的字符串， $length 默认直到字符串结尾 
         // strrev(); # 反转字符串
         // strtolower($string); # 全部字符串转为小写

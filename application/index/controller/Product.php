@@ -166,6 +166,7 @@ class Product extends Controller
     }
     public function delete()
     {
+        //
     }
 
     //字符串处理

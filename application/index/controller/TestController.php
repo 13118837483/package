@@ -14,6 +14,7 @@ class TestController extends Controller
     function __construct(Request $request = null)
     {
         parent::__construct($request);
+        //
         $this->mod = new Test();
 
     }

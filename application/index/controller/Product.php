@@ -161,6 +161,7 @@ class Product extends Controller
     }
     public function read($id)
     {
+        ///////
         $data = $this->model::where(['id' => $id])->with(['product'])->find();
         return json($data);
     }

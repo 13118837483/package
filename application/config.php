@@ -240,4 +240,5 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+    define('APP_ENV',\think\Env::get('APP_ENV','local')), //环境为本地
 ];

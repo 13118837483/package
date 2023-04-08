@@ -87,7 +87,9 @@ class TestController extends Controller
         $file = request()->file('image');//image为前端表单的名字
         // 移动到框架应用根目录/public/uploads/ 目录下
         if ($file) {
-            $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
+//            $info = $file->mo
+
+             ve(ROOT_PATH . 'public' . DS . 'uploads');
             if ($info) {
                 // 成功上传后 获取上传信息
                 // 输出 jpg

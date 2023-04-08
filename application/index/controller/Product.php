@@ -17,6 +17,7 @@ use NSQClient\Contract\Message;
 use think\Db;
 use NSQClient\Queue;
 use think\console\command\make\Controller;
+use think\Env;
 use think\Validate;
 
 class Product extends Controller
@@ -139,6 +140,7 @@ class Product extends Controller
     }
     public function index()
     {
+        halt(\think\Env::get('app_trace'));
 
         $get = input('get.');
         $where = [];
@@ -161,13 +163,11 @@ class Product extends Controller
     }
     public function read($id)
     {
-        ///////
         $data = $this->model::where(['id' => $id])->with(['product'])->find();
         return json($data);
     }
     public function delete()
     {
-        //
     }
 
     //字符串处理

@@ -12,16 +12,29 @@
 // 应用公共文件
 
 
-function json($data){
-//   halt($data);
-return json_encode($data,JSON_UNESCAPED_UNICODE);
+function json($data,$code = 0,$msg = 'success')
+{
+
+    return json_encode(['code' => $code,'data' =>$data,'msg' => $msg]);
 }
+// function json1($data = [], $code = 0, $msg = '')
+//{
+//    halt($data);
+//    if (empty($msg)) {
+//        if ($code == 0) {
+//            $msg = 'success';
+//        }
+//    }
+//
+//    return ['code' => $code, 'msg' => $msg, 'data' => $data];
+//}
 
 function obj_to_arr($data)
 {
     halt($data);
     return json_decode(json_encode($data));
 }
+
 function jsonData($code = 1, $msg = '', $data = [])
 {
     //code 0代表错误，1代表成功

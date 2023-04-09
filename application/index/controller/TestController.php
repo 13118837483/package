@@ -59,6 +59,7 @@ class TestController extends Controller
      * 2.避免使用select*
      * 3.合理使用索引
      * 4.使用内联合union来代替手动创建临时表
+     * 5.避免隐式转换导致索引失效
      *
      * 对于大流量网站 如何优化
      * 1.负载均衡，流量分流到不同服务器
@@ -66,7 +67,29 @@ class TestController extends Controller
      * 3.数据库使用读写分流 一主多从
      * 4.定位慢查询进行优化
      * 5.使用缓存避免频繁访问数据库
+     *
+     *
+     *
+     * MySQL常见的存储引擎InnoDB、MyISAM的区别
+     *
+     * 1.myisam不支持事务 innodb支持事务
+     * 2.myisam储存数据总行数   innodb不存储
+     * 3.myisam支持表级锁   innodb支持表锁 行锁
+     * 4.MyISAM适合：插入不频繁，查询非常频繁，如果执行大量的SELECT，MyISAM是更好的选择， 没有事务。
+     * 5.InnoDB适合：可靠性要求比较高，或者要求事务；表更新和查询都相当的频繁， 大量的INSERT或UPDATE
+     * 6.myisam索引树为非聚集索引（叶子节点的存放的是数据的文件地址）  innodb是聚集索引（叶子节点存放的是数据本身）
+     *
+     *
+     * mysql为什么使用B+tree
+     * hash：虽然可以快速定位，但是没有顺序，IO复杂度高。
+     * 二叉树：树的高度不均匀，不能自平衡，查找效率跟数据有关（树的高度），并且IO代价高。
+     * 红黑树：树的高度随着数据量增加而增加，IO代价高。
+     * B+TREE始终只有三层 而且是有序的 找寻起来速度较快而且io代价不高
+     *
+     *
      */
+
+
 
 
     /**
@@ -87,9 +110,7 @@ class TestController extends Controller
         $file = request()->file('image');//image为前端表单的名字
         // 移动到框架应用根目录/public/uploads/ 目录下
         if ($file) {
-//            $info = $file->mo
-
-             ve(ROOT_PATH . 'public' . DS . 'uploads');
+            $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
             if ($info) {
                 // 成功上传后 获取上传信息
                 // 输出 jpg

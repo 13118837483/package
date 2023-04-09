@@ -240,4 +240,14 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+    define('APP_ENV',\think\Env::get('APP_ENV','local')), //环境为本地
+    define('username',\think\Env::get('username','')), //用户名
+    define('hostport',\think\Env::get('hostport','')), //端口
+    define('password',\think\Env::get('password','')), //密码
+    define('params',\think\Env::get('params',[])), //连接参数
+    define('username',\think\Env::get('username','')), // 数据库编码默认采用utf8
+    define('username',\think\Env::get('username','')), //用户名
+    define('username',\think\Env::get('username','')), //用户名
+    define('username',\think\Env::get('username','')), //用户名
+    define('username',\think\Env::get('username','')), //用户名
 ];

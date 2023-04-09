@@ -140,7 +140,7 @@ class Product extends Controller
     }
     public function index()
     {
-        halt(\think\Env::get('app_trace'));
+        halt(\think\Env::get('database.datetime_format'));
 
         $get = input('get.');
         $where = [];

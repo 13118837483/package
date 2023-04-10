@@ -20,6 +20,7 @@ Route::get('new', 'index/News/index'); // 定义GET请求路由规则
 
 Route::get('product/arrStrFunction', 'index/Product/arrStrFunction'); // 定义GET请求路由规则
 Route::resource('product', 'index/Product'); // 定义GET请求路由规则
+Route::resource('spu','index/spu');//商品表资源路由
 Route::get('product/pai', 'index/Product/pai'); // 定义GET请求路由规则
 Route::get('nsq/push', 'index/NsqPush/push'); // 定义GET请求路由规则
 Route::post('new/:id', 'News/update'); // 定义POST请求路由规则

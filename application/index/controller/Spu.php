@@ -36,6 +36,7 @@ class Spu extends Controller
     {
 
         $post = $this->request->post();
+//        return $this->json($post);
         //校验SPU数据
         $validated = $this->validate($post, [
             'title' => 'require|length:1,50',
@@ -101,7 +102,43 @@ class Spu extends Controller
      */
     public function read($id)
     {
-//        $data = $this->model->with('Sku')->where(['id' => $id])->find();
+
+        $client = new \GuzzleHttp\Client;
+//        //2是商城页面
+//        $response = $client->post("http://laravel.cn:81/index.php/user",[
+//            'body' => [
+//                'email' => 'test@gmail.com',
+//                'name' => 'Test user',
+//                'password' => 'testpassword',
+//            ]
+//
+//        ]);
+//        $result = $response->getBody()->getContents();
+//        $result = json_decode($result, true);
+//        halt($result);
+//        $url = "http://laravel.cn:81/index.php/user";
+//        $data =  ['json' =>[
+//                'email' => 'test@gmail.com',
+//                'name' => 'Test user',
+//                'password' => 'testpassword',
+//            ]];
+//        $request = $client->request(
+//            'POST',
+//            $url,
+//           $data
+//        );
+////        $response = $client->send($request);
+//        $content = $request->getBody()->getContents();
+//        halt(json_decode($content,true));
+        $response = $client->post("http://laravel.cn:81/index.php/user", [
+            'json' => [
+                'name' => '张三',//参数
+            ]
+        ]);
+        $result = $response->getBody()->getContents();
+        $result = json_decode($result, true);
+        halt($result);
+
         $data = $this->model->join('sku', 'spu.id = sku.spu_id', 'left')->field('spu.*')->field("min(sku.price) as min_price,max(sku.price) as max_price")
             ->group('spu.id')
             ->select();

@@ -41,13 +41,39 @@ function jsonData($code = 1, $msg = '', $data = [])
     $codeV = ['error', 'success'];
     return json_encode(['code' => $codeV[$code], 'msg' => $msg, 'data' => $data], JSON_UNESCAPED_UNICODE);
 }
-// function json($data = [], $code = 0, $msg = '')
-// {
-//     if (empty($msg)) {
-//         if ($code == 0) {
-//             $msg = 'success';
-//         }
-//     }
-
-//     return ['code' => $code, 'msg' => $msg, 'data' => $data];
-// }
+function GuzzleHttpClient($method,$url,$data = []){
+    $client = new \GuzzleHttp\Client;
+//        //2是商城页面
+//        $response = $client->post("http://laravel.cn:81/index.php/user",[
+//            'body' => [
+//                'email' => 'test@gmail.com',
+//                'name' => 'Test user',
+//                'password' => 'testpassword',
+//            ]
+//
+//        ]);
+//        $result = $response->getBody()->getContents();
+//        $result = json_decode($result, true);
+//        halt($result);
+//        $url = "http://laravel.cn:81/index.php/user";
+//        $data =  ['json' =>[
+//                'email' => 'test@gmail.com',
+//                'name' => 'Test user',
+//                'password' => 'testpassword',
+//            ]];
+//        $request = $client->request(
+//            'POST',
+//            $url,
+//           $data
+//        );
+////        $response = $client->send($request);
+//        $content = $request->getBody()->getContents();
+//        halt(json_decode($content,true));
+    $response = $client->post("http://laravel.cn:81/index.php/user", [
+        'json' => [
+            'name' => '张三',//参数
+        ]
+    ]);
+    $result = $response->getBody()->getContents();
+    $result = json_decode($result, true);
+}

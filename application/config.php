@@ -244,4 +244,12 @@ return [
     define('username',\think\Env::get('username','')), //用户名
     define('hostport',\think\Env::get('hostport','')), //端口
     define('password',\think\Env::get('password','')), //密码
+
+    'qiniu' => [
+        'accessKey' => 'G-GvOfNXo8Rul5WzasPCKwGZnxQXJwBWj3ae81IJ',
+        'secretKey' => 'hSOhsDLbUlSFUVThv7M555w_FMs91k5MA-KrYLQO',
+        'domain' => 'rtmb03kwi.hn-bkt.clouddn.com',//域名地址
+        'bucket' => 'youtaimages',//空间名称
+        'zone'=> '华南-广东'//区域
+    ]
 ];

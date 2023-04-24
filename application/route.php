@@ -11,14 +11,16 @@
 
 use think\Route;
 
-Route::get('/', function () {
-    return 'Hello,worlddd!';
-});
+//Route::get('/', function () {
+//    return 'Hello,world!';
+//});
 
 
 Route::get('new', 'index/News/index'); // 定义GET请求路由规则
 
 Route::get('product/arrStrFunction', 'index/Product/arrStrFunction'); // 定义GET请求路由规则
+Route::post('qiniuyun/save', 'index/Qiniuyun/save'); // 七牛云上传图片
+
 Route::resource('product', 'index/Product'); // 定义GET请求路由规则
 Route::resource('spu','index/spu');//商品表资源路由
 Route::get('product/pai', 'index/Product/pai'); // 定义GET请求路由规则
